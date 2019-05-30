@@ -1,0 +1,132 @@
+@import "../../assets/scss/var.scss";
+
+.header {
+    position: fixed;
+    z-index: 1;
+    top: 30px;
+    overflow: visible;
+    left: 0;
+    width: 100%;
+
+    .logo {
+        position: absolute;
+        left: 30px;
+        top: 0;
+        height: 60px;
+    }
+
+    .nav {
+        position: absolute;
+        right: 30px;
+        top: 0;
+        font-size: 15px;
+        font-weight: 800;
+        letter-spacing: 2px;
+
+        .menu {
+            position: absolute;
+            right: 63px;
+            z-index: 2;
+            height: 60px;
+            color: $white-color;
+            align-items: center;
+            justify-content: center;
+            display: flex;
+            background-color: $black-color;
+            padding: 0 20px;
+            width: 553px;
+            overflow: hidden;
+            visibility: visible;
+            transition: visibility 500ms ease 0s, width 250ms cubic-bezier(0.65, 0.05, 0.36, 1) 0s;
+
+            &.close {
+                width: 60px;
+                visibility: hidden;
+                transition: visibility 200ms,width 250ms cubic-bezier(0.65,0.05,0.36,1);
+
+                li {
+                    opacity: 0;
+                    transition: opacity 250ms;
+                }
+            }
+
+            li {
+                user-select: none;
+                display: list-item;
+                padding: 20px 24px;
+                list-style: none;
+                white-space: nowrap;
+                position: relative;
+                cursor: pointer;
+                opacity: 1;
+                transition: opacity 450ms ease 100ms;
+
+                &::after {
+                    content: '';
+                    position: absolute;
+                    width: 0;
+                    height: 3px;
+                    bottom: 12px;
+                    background-color: $white-color;
+                    transition: width 300ms ease 50ms;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
+
+                &:focus::after,
+                &:hover::after {
+                    width: 80%;
+                }
+            }
+        }
+
+        .btn-menu {
+            z-index: 1;
+            cursor: pointer;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 183px;
+            height: 60px;
+            background-color: transparent;
+            border: none;
+            display: flex;
+            justify-content: space-between;
+            color: $white-color;
+            -webkit-appearance: none;
+            -webkit-text-size-adjust: 100%;
+            text-align: center;
+            vertical-align: middle;
+
+            &::before {
+                content: 'MENU';
+                padding: 20px 32px;
+                height: 60px;
+                width: 120px;
+                background-color: $black-color;
+                color: $white-color;
+                font-size: 15px;
+                font-weight: 800;
+                letter-spacing: 2px;
+            }
+
+            &::after {
+                border-width: 0;
+            }
+
+            .btn-svg {
+                background-color: $black-color;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                height: 60px;
+                width: 60px;
+
+                .svg-menu {
+                    width: 20px;
+                    height: auto;
+                }
+            }
+        }
+    }
+}

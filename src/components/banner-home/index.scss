@@ -1,0 +1,160 @@
+@import "../../assets/scss/var.scss";
+
+.banner {
+    display: flex;
+    padding: 20px;
+    margin-bottom: 40px;
+
+    .banner-img {
+        position: relative;
+        flex: 1;
+
+        &::before {
+            content: '';
+            display: block;
+            position: absolute;
+            left: -20px;
+            top: -20px;
+            opacity: 0.4;
+            width: 190px;
+            height: 190px;
+            background: linear-gradient(0deg,$pink-color 0%, $blue-color 100%);
+        }
+        .img-box {
+            width: 100%;
+            height: 100%;
+            min-height: 494px;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size:cover;
+        }
+        .img {
+            width: 100%;
+        }
+
+        .btn-more {
+            position: absolute;
+            bottom: 10%;
+            right: -20px;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+
+            .btn-txt {
+                color: $white-color;
+                font-size: 12px;
+                font-weight: 800;
+                letter-spacing: 2px;
+                height: 56px;
+                line-height: 56px;
+                text-align: center;
+                padding: 0 25px;
+                margin-right: 3px;
+                background-image: linear-gradient(84deg, #e2dde7 0%, #a9a1b2 25%, #918a9b 50%, #2e2c33 75%, #28262c 100%);
+                background-size: 200%;
+                background-position: right center;
+                transition: background-position 200ms ease;
+            }
+
+            .btn-ico {
+                height: 56px;
+                width: 56px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: $black-color;
+                color: $white-color;
+
+                .btn-svg {
+                    width: 16px;
+                    height: auto;
+                    transition: transform 300ms ease;
+                }
+            }
+
+            &:active,
+            &:hover {
+                .btn-txt {
+                    background-position: center;
+                }
+
+                .btn-svg {
+                    transform: translateX(25%);
+                }
+            }
+        }
+    }
+
+    .banner-detail {
+        flex: 1;
+        text-align: center;
+        font-weight: 800;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        .detail-box {
+            padding: 40px;
+
+            .title {
+                font-size: 40px;
+                margin-bottom: 20px;
+            }
+
+            .sub-title {
+                font-size: 25px;
+                position: relative;
+                padding: 0 20px;
+
+                span {
+                    color: $pink-color;
+                    margin: 0 6px;
+                }
+
+                &::after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    opacity: 0.4;
+                    width: 45px;
+                    height: 45px;
+                    border-right: 12px solid $blue-color;
+                    border-bottom: 12px solid $blue-color;
+                    right: -20px;
+                    bottom: -20px;
+                }
+            }
+        }
+    }
+
+    &.right {
+        .banner-img {
+            &::before {
+                right: -20px;
+                bottom: -20px;
+                left: auto;
+                top: auto;
+            }
+
+            .btn-more {
+                left: -20px;
+                right: auto;
+            }
+        }
+
+        .detail-box {
+            .sub-title {
+                &::after {
+                    left: -20px;
+                    top: -20px;
+                    right: auto;
+                    bottom: auto;
+                    border-left: 12px solid $blue-color;
+                    border-top: 12px solid $blue-color;
+                    border-right: none;
+                    border-bottom: none;
+                }
+            }
+        }
+    }
+}

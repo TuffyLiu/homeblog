@@ -1,0 +1,219 @@
+@import "../../assets/scss/var.scss";
+
+.photo-container {
+    width: 100%;
+    padding: 108px 32px 20px;
+    position: relative;
+    text-align: center;
+
+    .photo-bg {
+        width: 58vh;
+        height: 58vh;
+        margin: auto;
+        transition: border-radius 0.5s, width 0.5s, height 0.5s, opacity 0.5s;
+        transform-origin: 50% 0;
+        transition-timing-function: cubic-bezier(0.6,0,0.4,1);
+        background-image: url("../../assets/img/stock-photo-134067119.jpg");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        filter:grayscale(100%);
+    }
+
+    &.view-full {
+        overflow-x: hidden;
+        overflow-y: visible;
+
+        .stack-slider {
+            z-index: 1;
+            .stacks-wrapper {
+                .stack {
+                    opacity: 0;
+                    .item {
+                        .content {
+                            img {
+                                filter: none;
+                            }
+                            &::after,
+                            &::before {
+                                opacity: 0;
+                            }
+                        }
+                    }
+                    &.stack-next {
+                        transform: translate3d(70px, 420px, 0);
+                    }
+
+                    &.stack-prev {
+                        transform: translate3d(-70px, 420px, 0);
+                    }
+                    &.is-selected {
+                        opacity: 1;
+                        .stack-title {
+                            color: #999;
+                            span::before {
+                                transform: rotate(180deg);
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .photo-bg {
+            width: 8.7vh;
+            height: 8.7vh;
+            border-radius: 50%;
+        }
+    }
+
+    .stack-slider {
+        margin: auto;
+        height: 300px;
+        overflow: hidden;
+        width: 100%;
+        user-select: none;
+        transition: width 0.5s, height 0.5s, opacity 0.5s;
+        transform-origin: 50% 0;
+        transition-timing-function: cubic-bezier(0.6,0,0.4,1);
+
+        .stacks-wrapper {
+            position: relative;
+            height: 100%;
+            width: 100%;
+
+            .stack {
+                width: 45%;
+                text-align: center;
+
+                &.stack-prev, &.stack-next {
+                    transition: transform 0.5s, opacity 0.5s;
+                    transition-timing-function: cubic-bezier(0.6,0,0.4,1);
+                    .stack-title {
+                        span::after {
+                            content: '';
+                            width: 30px;
+                            height: 30px;
+                            position: absolute;
+                            top: 2px;
+                            opacity: 0;
+                            background: url("../../assets/img/arrow-gray.svg") no-repeat center center;
+                            transition: opacity 0.3s;
+                            transition-timing-function: cubic-bezier(0.6,0,0.4,1);
+                        }
+                        &:hover, &:active {
+                            span::after{
+                                opacity: 1;
+                            }
+                        }
+                    }
+                }
+                &.stack-prev {
+                    .stack-title {
+                        span::after {
+                            right: -35px;
+                            transform: rotate3d(0,0,1,-90deg);
+                        }
+
+                    }
+                }
+                &.stack-next {
+                    .stack-title {
+                        span::after {
+                            left: -35px;
+                            top: 2px;
+                            transform: rotate3d(0,0,1,90deg);
+                        }
+                    }
+                }
+
+
+
+                &.is-selected {
+                    .stack-title {
+                        color: $pink-color;
+                        position: relative;
+
+                        span::before {
+                            content: '';
+                            width: 30px;
+                            height: 30px;
+                            position: absolute;
+                            left: 50%;
+                            margin-left: -15px;
+                            bottom: 32px;
+                            background: url("../../assets/img/arrow-colored.svg") no-repeat center center;
+                            transition: transform 0.5s, opacity 0.3s;
+                            transition-timing-function: cubic-bezier(0.6,0,0.4,1);
+                        }
+                    }
+                }
+
+                .stack-title {
+                    font-size: 26px;
+                    line-height: 1;
+                    font-weight: 800;
+                    padding: 60px 0 30px;
+                    color: #e9e9e9;
+                    cursor: pointer;
+
+                    span {
+                        position: relative;
+                    }
+                }
+
+                .item {
+                    padding: 0 5% 5%;
+                    width: 100%;
+                    text-align: left;
+                    background-color: #fff;
+
+                    .content {
+                        position: relative;
+                        width: 100%;
+
+                        img {
+                            width: 100%;
+                            min-height: 210px;
+                            display: block;
+                            position: relative;
+                            filter:grayscale(100%);
+                        }
+
+                        h3 {
+                            font-size: 18px;
+                            line-height: 40px;
+
+                            span {
+                                font-size: 12px;
+                                margin-left: 6px;
+                                color: #888;
+                            }
+                        }
+
+                        &::after,
+                        &::before {
+                            content: '';
+                            width: 100%;
+                            height: 20px;
+                            background-color: #e9e9e9;
+                            position: absolute;
+                            top: 0;
+                            left: 0;
+                            transition: transform 0.5s, opacity 0.5s;
+                            transition-timing-function: cubic-bezier(0.6,0,0.4,1);
+                        }
+
+                        &::before {
+                            transform: translate3d(0,-10px,0) scale3d(0.95,0.95,1);
+                        }
+
+                        &::after {
+                            transform: translate3d(0,-20px,0) scale3d(0.9,0.9,1);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
