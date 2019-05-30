@@ -6,3 +6,4 @@ declare module '*.vue' {
 declare module 'flickity';
 declare module 'gsap';
 declare module 'highlight.js';
+declare module 'prismjs';

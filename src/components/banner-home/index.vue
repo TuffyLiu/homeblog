@@ -66,3 +66,14 @@ export default class BannerHome extends Vue {
 <style lang="scss" scoped>
 @import "index.scss";
 </style>
+<style lang="scss">
+@import "../../assets/scss/var.scss";
+.banner{
+    .sub-title {
+        span{
+            color: $pink-color;
+            margin: 0 6px;
+        }
+    }
+}
+</style>

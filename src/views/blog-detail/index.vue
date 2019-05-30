@@ -1,6 +1,6 @@
 <template>
 <div class="blog-detail">
-    <banner-blog :title="title" :subTitle="mark" :imgUrl="banner"></banner-blog>
+    <banner-blog :title="title" :subTitle="tip" :imgUrl="banner"></banner-blog>
     <article class="container" ref="container" v-html="blogDetail">
 
     </article>
@@ -14,17 +14,21 @@ import {
     Vue
 } from 'vue-property-decorator';
 import BannerBlog from '@/components/banner-blog/index.vue';
+import Prism from 'prismjs';
+import 'prismjs/themes/prism.css';
 import hljs from 'highlight.js';
-// import hljs from 'highlight.js/lib/highlight';
 import 'highlight.js/styles/github.css';
+
+// hljs.initHighlightingOnLoad();
 @Component({
+    name: 'BlogDetail',
     components: {
         BannerBlog
     }
 })
 export default class BlogDetail extends Vue {
     private title: string = '';
-    private mark: string = '';
+    private tip: string = '';
     private banner: string = '';
     private id: string = '';
     private blogDetail: string = '';
@@ -44,7 +48,7 @@ export default class BlogDetail extends Vue {
                 return item.id === this.id;
             })[0];
             this.title = data.title;
-            this.mark = data.mark;
+            this.tip = data.tip;
             this.banner = data.banner;
             this.showHighCode();
         });
@@ -52,11 +56,8 @@ export default class BlogDetail extends Vue {
     private showHighCode(): void {
         this.$nextTick(() => {
             setTimeout(() => {
-                const list = document.querySelectorAll('pre code');
-                list.forEach((block: any) => {
-                    hljs.highlightBlock(block);
-                });
-            }, 100);
+                Prism.highlightAll();
+            }, 1);
         });
     }
 
@@ -77,6 +78,14 @@ export default class BlogDetail extends Vue {
     }
     iframe {
         border: none;
+    }
+    img{
+        width: 100%;
+        height: auto;
+    }
+    h3{
+        margin-bottom: 6px;
+        margin-top: 15px;
     }
 }
 </style>

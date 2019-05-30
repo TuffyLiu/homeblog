@@ -8,7 +8,9 @@
             <li><a href="https://weibo.com/u/1816255453?refer_flag=1005055010" target="_blank">Weibo</a></li>
             <li><router-link tag="a" :to="{name: 'About'}">Contact Me</router-link></li>
         </ul>
-        <img class="logo" alt="tuffy logo" src="../../assets/logo.png">
+        <router-link  :to="{name: 'Home'}">
+             <img class="logo" alt="tuffy logo" src="../../assets/logo.png">
+        </router-link>
     </div>
     <p class="copy-right">COPYRIGHT © 2019–2029 TUFFY-阿胐</p>
 

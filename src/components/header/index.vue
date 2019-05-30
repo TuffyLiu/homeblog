@@ -1,6 +1,9 @@
 <template>
   <header class="header">
-      <img class="logo" alt="tuffy logo" src="../../assets/logo.png">
+      <router-link  :to="{name: 'Home'}">
+           <img class="logo" alt="tuffy logo" src="../../assets/logo.png">
+      </router-link>
+
       <div class="nav" >
           <ul class="menu" :class="[menuOpen ? 'oppen' : 'close' ]">
               <router-link tag="li" :to="{name: 'Home'}" >Home</router-link>
