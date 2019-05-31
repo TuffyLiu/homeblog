@@ -57,7 +57,7 @@ export default class BlogDetail extends Vue {
         this.$nextTick(() => {
             setTimeout(() => {
                 Prism.highlightAll();
-            }, 1);
+            }, 100);
         });
     }
 
