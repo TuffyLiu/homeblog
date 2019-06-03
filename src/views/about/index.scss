@@ -1,3 +1,16 @@
 .about-container{
     padding: 108px 32px 20px;
+    .container{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 80px 0;
+        .left-box {
+
+        }
+        .box-img{
+            width: 200px;
+            margin-right: 20px;
+        }
+    }
 }

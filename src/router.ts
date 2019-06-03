@@ -49,22 +49,17 @@ export default new Router({
                 name: 'Home'
             }
         }
-    ]
-    // scrollBehavior: (to, from, savedPosition) => {
-    //     console.log(from.name);
-    //     if (savedPosition && to.meta.keepAlive) {
-    //         return new Promise((resolve) => {
-    //             setTimeout(() => {
-    //                 resolve(savedPosition);
-    //                 console.log('scrollBehavior');
-    //             }, 0);
-    //         });
-    //     } else {
-    //         return new Promise((resolve) => {
-    //             setTimeout(() => {
-    //                 resolve({ x: 0, y: 0 });
-    //             }, 0);
-    //         });
-    //     }
-    // }
+    ],
+    scrollBehavior: (to, from, savedPosition) => {
+        console.log(from.name);
+        if (savedPosition && to.meta.keepAlive) {
+            return new Promise((resolve) => {
+                resolve(savedPosition);
+            });
+        } else {
+            return new Promise((resolve) => {
+                resolve({ x: 0, y: 0 });
+            });
+        }
+    }
 });

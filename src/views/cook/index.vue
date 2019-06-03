@@ -58,7 +58,8 @@ export default class Cook extends Vue {
             initialIndex: 0,
             setGallerySize: false,
             pageDots: false,
-            prevNextButtons: false
+            prevNextButtons: false,
+            lazyLoad: 2
         });
 
         this.flky.on('cellSelect', () => {

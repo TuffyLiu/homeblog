@@ -34,7 +34,7 @@ import Flickity from 'flickity';
     }
 })
 export default class Photo extends Vue {
-    private imgUrl: string = require('../../assets/img/maxresdefault.jpg');
+    private imgUrl: string = require('../../assets/img/stock-photo-134067119.jpg');
     private flky!: any;
     private stacks!: any;
     private stacksWrapper!: any;
@@ -57,7 +57,8 @@ export default class Photo extends Vue {
             initialIndex: 0,
             setGallerySize: false,
             pageDots: false,
-            prevNextButtons: false
+            prevNextButtons: false,
+            lazyLoad: 2
         });
 
         this.flky.on('cellSelect', () => {
