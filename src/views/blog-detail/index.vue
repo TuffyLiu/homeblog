@@ -5,7 +5,9 @@
     </article>
     <h3 class="other"><span>Orthers</span></h3>
     <div class="row">
-        <router-link tag="div" :key="blog.id" :to="{name: 'BlogDetail', params: {id: blog.id} }" class="block" v-for="blog in blogList" :style="{'background-image': 'url('+blog.banner +')'}">
+        <router-link tag="div" :key="blog.id" :to="{name: 'BlogDetail', params: {id: blog.id} }" class="block" v-for="blog in blogList">
+            <img :src="blog.banner" alt="">
+            <p>{{blog.title}}</p>
         </router-link>
     </div>
 </div>
