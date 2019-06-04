@@ -84,6 +84,7 @@ export default class BlogDetail extends Vue {
         line-height: 1.5;
         font-size: 15px;
         margin-bottom: 8px;
+        // white-space:pre-wrap;
     }
     iframe {
         border: none;
