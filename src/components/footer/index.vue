@@ -2,10 +2,10 @@
 <footer class="footer">
     <div class="footer-links">
         <ul class="links">
-            <li><a href="https://github.com/TuffyLiu" target="_blank">Github</a> </li>
-            <li><a href="https://www.qdfuns.com/u/17942.html" target="_blank">Qdfuns</a></li>
-            <li><a href="https://www.instagram.com/tuffy_liu/" target="_blank">Instagram</a></li>
-            <li><a href="https://weibo.com/u/1816255453?refer_flag=1005055010" target="_blank">Weibo</a></li>
+            <li><a href="https://github.com/TuffyLiu" target="_blank"  rel="noopener noreferrer">Github</a> </li>
+            <li><a href="https://www.qdfuns.com/u/17942.html" target="_blank"  rel="noopener noreferrer">Qdfuns</a></li>
+            <li><a href="https://www.instagram.com/tuffy_liu/" target="_blank"  rel="noopener noreferrer">Instagram</a></li>
+            <li><a href="https://weibo.com/u/1816255453?refer_flag=1005055010" target="_blank"  rel="noopener noreferrer">Weibo</a></li>
             <li><router-link tag="a" :to="{name: 'About'}">Contact Me</router-link></li>
         </ul>
         <router-link  :to="{name: 'Home'}">

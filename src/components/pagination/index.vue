@@ -48,7 +48,7 @@ export default class Footer extends Vue {
     get pages() {
         return new Array(this.count);
     }
-    @Watch('pageActive') onPageActiveChange(val: number) {
+    @Watch('pageActive') private onPageActiveChange(val: number) {
         this.pageActive = val;
         this.$emit('change', val);
     }

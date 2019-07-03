@@ -99,5 +99,20 @@ export default class BlogDetail extends Vue {
         margin-bottom: 6px;
         margin-top: 15px;
     }
+    .list{
+        li{
+            display: flex;
+            align-items: center;
+            &::before{
+                content: '';
+                width: 5px;
+                height: 5px;
+                border-radius: 50%;
+                display: inline-block;
+                background-color: #888;
+                margin-right: 10px;
+            }
+        }
+    }
 }
 </style>

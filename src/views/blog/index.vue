@@ -1,7 +1,9 @@
 <template>
 <div class="blog-container">
     <heading>Blog</heading>
-    <blog-item v-for="(blog,index) in showData" :id="blog.id" :key="'blog' + index" :title="blog.title" :subTitle="blog.subTitle" :imgUrl="blog.banner" :date="blog.date"></blog-item>
+    <transition-group tag="div" name="list">
+        <blog-item v-for="(blog,index) in showData" :id="blog.id" :key="'blog' + index" :title="blog.title" :subTitle="blog.subTitle" :imgUrl="blog.banner" :date="blog.date"></blog-item>
+    </transition-group>
     <pagination :itemsPerPage="itemsPerPage" :totalItems="data.length" @change="pageChange" />
 </div>
 </template>
@@ -49,4 +51,14 @@ export default class Blog extends Vue {
 </script>
 <style lang="scss" scoped>
 @import "index.scss";
+</style>
+<style media="screen">
+.list-enter-active{
+  transition: all 1s;
+}
+.list-enter
+/* .list-leave-active for below version 2.1.8 */ {
+  opacity: 0;
+  transform: translateY(30px);
+}
 </style>
