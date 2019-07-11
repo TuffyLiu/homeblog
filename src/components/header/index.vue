@@ -36,7 +36,7 @@ import {
     }
 })
 export default class Header extends Vue {
-    private menuOpen = false;
+    private menuOpen = true;
     private clickMenu(): void {
         this.menuOpen = !this.menuOpen;
     }
