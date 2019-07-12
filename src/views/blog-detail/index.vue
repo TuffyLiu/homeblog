@@ -46,6 +46,7 @@ export default class BlogDetail extends Vue {
     private getBlogDetail(): void {
         this.$axios.get(`/data/blogs/${this.id}.html`).then((res: any) => {
             this.blogDetail = res.data;
+            this.showHighCode();
         });
     }
     private getBlogData(): void {
@@ -53,7 +54,6 @@ export default class BlogDetail extends Vue {
             const dataIndex = res.data.findIndex((item: any) => {
                 return item.id === this.id;
             });
-
             this.blogList = res.data.slice(dataIndex + 1, dataIndex + 4);
             this.blogList = this.blogList.concat(res.data.slice(0, Math.max(3 - this.blogList.length, 0)));
 
@@ -61,14 +61,11 @@ export default class BlogDetail extends Vue {
             this.title = data.title;
             this.tip = data.tip;
             this.banner = data.banner;
-            this.showHighCode();
         });
     }
     private showHighCode(): void {
         this.$nextTick(() => {
-            setTimeout(() => {
-                Prism.highlightAll();
-            }, 100);
+            Prism.highlightAll();
         });
     }
 
@@ -101,8 +98,6 @@ export default class BlogDetail extends Vue {
     }
     .list{
         li{
-            display: flex;
-            align-items: center;
             &::before{
                 content: '';
                 width: 5px;

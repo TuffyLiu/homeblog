@@ -27,14 +27,7 @@ import {
     Vue
 } from 'vue-property-decorator';
 
-@Component({
-    filters: {
-        // character: Filters.character
-    },
-    components: {
-        // HeaderNav
-    }
-})
+@Component
 export default class Header extends Vue {
     private menuOpen = true;
     private clickMenu(): void {
