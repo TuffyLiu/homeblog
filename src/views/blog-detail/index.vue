@@ -21,10 +21,6 @@ import {
 import BannerBlog from '@/components/banner-blog/index.vue';
 import Prism from 'prismjs';
 import 'prismjs/themes/prism.css';
-import hljs from 'highlight.js';
-import 'highlight.js/styles/github.css';
-
-// hljs.initHighlightingOnLoad();
 @Component({
     name: 'BlogDetail',
     components: {
@@ -75,13 +71,14 @@ export default class BlogDetail extends Vue {
 @import "index.scss";
 </style>
 <style lang="scss">
-.container {
+.blog-detail .container {
+    line-height: 1.6;
+    font-size: 15px;
     section {
         margin-bottom: 20px;
     }
     p {
-        line-height: 1.5;
-        font-size: 15px;
+
         margin-bottom: 8px;
         // white-space:pre-wrap;
     }
@@ -95,9 +92,20 @@ export default class BlogDetail extends Vue {
     h3 {
         margin-bottom: 6px;
         margin-top: 15px;
+        font-size: 18px;
     }
-    .list{
+    h2{
+        margin-bottom: 8px;
+        font-size: 20px;
+    }
+    h1{
+        margin-bottom: 10px;
+        text-align: center;
+        font-size: 22px;
+    }
+    ul{
         li{
+            margin-left: 16px;
             &::before{
                 content: '';
                 width: 5px;
@@ -107,6 +115,25 @@ export default class BlogDetail extends Vue {
                 background-color: #888;
                 margin-right: 10px;
             }
+        }
+    }
+    table{
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 100%;
+        border-collapse: collapse;
+        thead th{
+            background-color: rgba(245,242,240,.5);
+            border: 2px solid #fff;
+            border-bottom: 2px solid rgba(245,242,240,1);
+            padding: 2px 8px 4px;
+            font-weight: bold;
+        }
+        tbody td{
+            background-color: rgba(245,242,240,.25);
+            box-shadow: inset 0 -1px 0 0 rgba(245,242,240,.5);
+            border: 2px solid #fff;
+            padding: 6px 8px;
         }
     }
 }
