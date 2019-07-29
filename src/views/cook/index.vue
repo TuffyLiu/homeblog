@@ -5,7 +5,7 @@
         <div class="stacks-wrapper" ref="stacksWrapper">
             <div class="stack" v-for="(stack, index) in data" :key="'stack' + index">
                 <figure class="figure-layout" :style="'grid-area:'  + figure.gridArea" v-for="(figure, i) in stack" :key="'figure' + i">
-                    <div class="img-box" :style="'background-image: url(' +  figure.picture  +')'"></div>
+                    <div class="img-box" :style="'background-image: url(' + (showList[index] ? figure.picture : imgUrl ) +')'"></div>
                     <figcaption>
                         <h3 class="title">{{figure.title}}</h3>
                         <p class="sub-title">{{figure.subTitle}}</p>
@@ -38,18 +38,16 @@ export default class Cook extends Vue {
     private stacksWrapper!: any;
     private stacks!: any;
     private flky!: any;
+    private showList: any = [true, true, true];
     private created() {
         this.getCookData();
     }
     private createSlider(): void {
         this.stacksWrapper = this.$refs.stacksWrapper;
         this.stacks = this.stacksWrapper.querySelectorAll('.stack');
-        // this.loadImg(0);
         if (this.stacks[1]) {
             this.stacks[1].classList.add('stack-next');
             this.stacks[this.stacks.length - 1].classList.add('stack-prev');
-            // this.loadImg(1);
-            // this.loadImg(this.stacks.length - 1);
         }
 
         this.flky = new Flickity(this.stacksWrapper, {
@@ -77,6 +75,10 @@ export default class Cook extends Vue {
             }
             this.stacks[previdx].classList.add('stack-prev');
             this.stacks[nextidx].classList.add('stack-next');
+            this.showList[selidx] = true;
+            this.showList[previdx] = true;
+            this.showList[nextidx] = true;
+            this.showList = [].concat(this.showList);
         });
     }
     private clickNextBtn(): void {

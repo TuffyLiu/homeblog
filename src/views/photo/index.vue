@@ -8,7 +8,7 @@
                 <h2 class="stack-title" ><span class="title-span">{{stack.setName}}</span></h2>
                 <div class="item" v-for="(photo , j) in stack.photos" :key="'photo' + j">
                     <div class="content">
-                        <img :src="photo.url" alt="">
+                        <img :src="(showList[index] ? photo.url : imgUrl )" :alt="photo.title">
                         <h3>{{photo.title}} <span class="item__date">{{photo.date}}</span></h3>
                     </div>
                 </div>
@@ -42,6 +42,7 @@ export default class Photo extends Vue {
     private canOpen: boolean = true;
     private clientHeight: string = '300px';
     private data: any = [];
+    private showList: any = [true, true, true];
     private created() {
         this.getPhotoData();
     }
@@ -77,6 +78,10 @@ export default class Photo extends Vue {
             this.stacks[previdx].classList.add('stack-prev');
             this.stacks[nextidx].classList.add('stack-next');
             this.showStack(this.stacks[selidx]);
+            this.showList[selidx] = true;
+            this.showList[previdx] = true;
+            this.showList[nextidx] = true;
+            this.showList = [].concat(this.showList);
         });
 
         this.flky.on('dragStart', () => {
