@@ -1,8 +1,8 @@
 <template>
 <div class="blog-detail">
     <banner-blog :title="title" :subTitle="tip" :imgUrl="banner"></banner-blog>
-    <article class="container" ref="container" v-html="blogDetail">
-    </article>
+    <article class="container" ref="container" v-html="blogDetail" v-if="blogDetail"></article>
+    <div class="loader" v-else>Loading...</div>
     <h3 class="other"><span>Orthers</span></h3>
     <div class="row">
         <router-link tag="div" :key="blog.id" :to="{name: 'BlogDetail', params: {id: blog.id} }" class="block" v-for="blog in blogList">
@@ -43,6 +43,8 @@ export default class BlogDetail extends Vue {
         this.$axios.get(`/data/blogs/${this.id}.html`).then((res: any) => {
             this.blogDetail = res.data;
             this.showHighCode();
+        }).catch(() => {
+            this.blogDetail = '<h3>文章加载失败~~</h3>';
         });
     }
     private getBlogData(): void {
