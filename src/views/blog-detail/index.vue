@@ -64,9 +64,18 @@ export default class BlogDetail extends Vue {
     private showHighCode(): void {
         this.$nextTick(() => {
             Prism.highlightAll();
+            setTimeout(() => {
+                this.goAnchor();
+            }, 0);
         });
     }
-
+    private goAnchor() {
+        const selector: any = this.$route.query.id;
+        if (selector) {
+            const  anchor: any = document.getElementById(selector);
+            document.documentElement.scrollTop = anchor.offsetTop;
+        }
+    }
 }
 </script>
 <style lang="scss" scoped>
@@ -138,5 +147,10 @@ export default class BlogDetail extends Vue {
             padding: 6px 8px;
         }
     }
+    .logo {
+        height: 100px;
+        width: auto;
+    }
+
 }
 </style>
