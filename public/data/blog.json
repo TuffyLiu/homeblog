@@ -184,7 +184,7 @@
     },
     {
         "id": "calender",
-        "title": "美食日录小程序说明",
+        "title": "美食日录小程序介绍",
         "subTitle": "如何设计和编写一个小程序",
         "banner": "https://pic.downk.cc/item/5f301b5a14195aa594ee1d62.jpg",
         "date": "09/08/2020",
@@ -193,16 +193,16 @@
     },
     {
         "id": "xingfu",
-        "title": "幸福双翼项目说明",
+        "title": "幸福双翼项目介绍",
         "subTitle": "深圳市幸福双翼教育科技有限公司",
-        "banner": "https://pic.downk.cc/item/5f2ffd0614195aa594e63ec3.jpg",
+        "banner": "https://pic.downk.cc/item/5f32aba014195aa594bcddb5.png",
         "date": "09/08/2020",
         "mark": "项目说明",
         "tip": "Vue && 微信小程序"
     },
     {
         "id": "hellotalk",
-        "title": "HelloTalk项目说明",
+        "title": "HelloTalk项目介绍",
         "subTitle": "深圳市天创进科技有限公司",
         "banner": "https://pic.downk.cc/item/5f2ffbc314195aa594e5f728.jpg",
         "date": "09/08/2020",
@@ -211,7 +211,7 @@
     },
     {
         "id": "dasudian",
-        "title": "Dasudian项目说明",
+        "title": "Dasudian项目介绍",
         "subTitle": "深圳大数点科技有限公司",
         "banner": "https://pic.downk.cc/item/5f2ffcb814195aa594e62cc1.png",
         "date": "09/08/2020",
